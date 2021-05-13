@@ -1,0 +1,129 @@
+<style>
+    .search_form {
+        justify-content:center;
+        display: flex;
+        flex-direction:column;
+    }
+    .search_form>input {
+        margin : 10px;
+    }
+</style>
+
+<script>
+    function selectItems() {
+        let searchForm = document.getElementById('search');
+        console.log(searchForm.value)
+        let provider = document.getElementById('provider')
+        let client = document.getElementById('client')
+        let car = document.getElementById('car')
+        let service = document.getElementById('service')
+        switch(searchForm.value) {
+            case 'Поставщики' : 
+                provider.style.display = 'block'
+                client.style.display = 'none'
+                car.style.display = 'none'
+                service.style.display = 'none'
+                break
+            
+            case 'Клиенты' : 
+                provider.style.display = 'none'
+                client.style.display = 'block'
+                car.style.display = 'none'
+                service.style.display = 'none'
+                break
+            
+            case 'Автомобили' : 
+                provider.style.display = 'none'
+                client.style.display = 'none'
+                car.style.display = 'block'
+                service.style.display = 'none'
+                break
+            
+            case 'Товары/услуги' : 
+                provider.style.display = 'none'
+                client.style.display = 'none'
+                car.style.display = 'none'
+                service.style.display = 'block'
+                break
+        }
+    }
+</script>
+
+
+<div class="d-flex justify-content-center align-items-center flex-column">
+    <div>Выберите наименование и критерии поиска : </div>
+    <select name="search" id="search" onchange=selectItems()>
+        <option>
+            Поставщики
+        </option>
+        <option>
+            Клиенты
+        </option>
+        <option>
+            Автомобили
+        </option>
+        <option>
+            Товары/услуги
+        </option>
+    </select>
+
+    <div id="provider" style="display:none">
+        <form method="get" action="/filter_page" class="search_form">
+            <input type="hidden" name="type" value='provider'>
+            <input type="text" name="provider_Name" placeholder="Название организации">
+            <input type="text" name="provider_Type" placeholder="Тип услуг">
+            <input type="text" name="provider_UNP" placeholder="УНП">
+            <input type="text" name="provider_LegalAddress" placeholder="Юридический адрес">
+            <input type="text" name="provider_Actual_Address" placeholder="Фактический адрес">
+            <input type="text" name="provider_Tel" placeholder="Тел./факс">
+            <input type="text" name="provider_Person" placeholder="Контактное лицо">
+            <input type="text" name="provider_Payment" placeholder="Банковский счет">
+            <input type="submit" value="Отправить">
+        </form>	
+    </div>
+
+    <div id="client" style="display:none" class="search_form">
+        <form method="get" action="/filter_page">
+            <input type="hidden" name="type" value='customer'>
+            <input type="text" name="customer_Name" placeholder="Название организации">
+            <input type="text" name="customer_Type" placeholder="Тип услуг">
+            <input type="text" name="customer_UNP" placeholder="УНП">
+            <input type="text" name="customer_Legal_Address" placeholder="Юридический адрес">
+            <input type="text" name="customer_Actual_Address" placeholder="Фактический адрес">
+            <input type="text" name="customer_Tel" placeholder="Фактический адрес">
+            <input type="text" name="customer_Person" placeholder="Контактное лицо">
+            <input type="submit" value="Отправить">
+        </form>	
+    </div>
+
+    <div id="car" style="display:none">
+        <form method="get" action="/filter_page" class="search_form">
+            <input type="hidden" name="type" value='car'>
+            <input type="text" name="car_FIO" placeholder="ФИО водителя">
+            <input type="text" name="car_Model" placeholder="Модель автомобиля">
+            <input type="text" name="car_Chassis" placeholder="Номер шасси">
+            <input type="text" name="car_Year" placeholder="Год автомобиля">
+            <input type="text" name="car_Direction_transportation" placeholder='Направление перевозки'>
+            <input type="submit" value="Отправить">
+        </form>	
+    </div>
+
+    <div id="service" style="display:none">
+        <form method="get" action="/filter_page" class="search_form">
+            <input type="hidden" name="type" value='service'>
+            <input type="text" name="service_Name" placeholder="Наименование услуги">
+            <input type="text" name="service_Code" placeholder="Код">
+            <input type="text" name="service_Unit" placeholder="Единицы измерения">
+            <input type="text" name="service_VendorCode" placeholder="Артикул">
+            <input type="text" name="service_Country_of_origin" placeholder='Страна происхождения'>
+            <input type="text" name="service_Weight" placeholder='Вес'>
+            <input type="submit" value="Отправить">
+        </form>	
+    </div>
+
+    <div class='bg-white w-40 text-center h-10'>
+        *Поля можно оставить пустыми, если фильтрация по их критериям не нужна.
+    </div>
+
+</div>
+

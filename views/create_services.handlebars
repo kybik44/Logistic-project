@@ -1,0 +1,52 @@
+<div class="box_left">
+    <h4> {{Name_form}} </h4>
+    <form method="POST" action="/save_services">
+        <label class="form-field">
+            <input class="id" type="hidden" name="ID" value="{{Id}}">
+        </label>
+        <label class="form-field">
+            <span>Наименование товара/услуги:</span>
+            <input class="fio" type="text" placeholder="Бланк трудовой книжки" name="Name" value="{{Name}}">
+        </label>
+        <label class="form-field">
+            <span>Код товара/услуги:</span>
+            <input class="marka" type="text" placeholder="8513659" name="Code" value="{{Code}}">
+        </label>
+        <label class="form-field">
+            <span>Еденица измерения:</span>
+            <input class="shasi" type="text" placeholder="шт." name="Unit" value="{{Unit}}">
+        </label>
+        <label class="form-field">
+            <span>Артикул:</span>
+            <input class="god" type="text" placeholder="4884666" name="VendorCode" value="{{VendorCode}}">
+        </label>
+        <div class="col">
+            <div class="form-group">
+                <label class="form-field">
+                    <span>Страна назначения:</span>
+                    <input type="text" list="country_list" placeholder="РБ" name="Country_of_origin" value="{{Country_of_origin}}"/>
+                    <datalist id="country_list">
+                        <option></option>
+                        {{#each country}}
+                        <option value={{name}}>{{name}}</option>
+                        {{/each}}
+                    </datalist>
+                </label>
+            </div>
+        </div>
+        <label class="form-field">
+            <span>Вес:</span>
+            <input type="text" placeholder="3,50" name="Weight" value="{{Weight}}">
+        </label>
+        <label class="form-field">
+            <span>Услуга:</span>
+            <input type="checkbox" placeholder="" name="Service" value="{{Service}}">
+        </label>
+
+        <label class="knopka">
+            <input class="submit" type="submit" value={{button_name}}>
+            {{!-- <input class="submit" type="submit" value="Отмена"> --}}
+        </label>
+
+    </form>
+</div>

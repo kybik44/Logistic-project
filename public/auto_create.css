@@ -1,0 +1,116 @@
+@font-face {
+    font-family:Roboto;
+    src: url(./style/Roboto/Roboto-Bold.ttf);
+}
+body {
+    background-image: url(./img/bg.jpg);
+    background-repeat: no-repeat;
+    -moz-background-size: cover;
+    -webkit-background-size: cover; 
+    -o-background-size: cover;
+    background-size: cover;
+}
+.content {
+    max-width: 960px;
+    margin: 0 auto;
+
+}
+.box_left {
+    border: solid 5px rgb(100, 100, 100);
+    background-position-x: 170px;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-image: url(./img/dostavka-gruzov.png);
+    border-radius: 5%;
+    width: 760px;
+    height: 360px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 20px 10%;
+}
+.form-country span {
+    margin:0 0 5px 10px ;
+}
+
+h4 {
+    text-align: center;
+    margin: 20px 0 0 0 ;
+}
+form {
+    margin: 20px;
+    display: grid;
+}
+
+.value {
+    vertical-align: middle;
+}
+input {
+  
+    padding: 0px 20px;
+    height: 24px;
+    vertical-align: middle;
+    margin-top:5px;
+    margin-bottom: 10px;
+   
+}
+label .fio {
+    margin-left: 59px;
+}
+
+label .marka {
+    margin-left: 34px;
+}
+label .shasi{
+    margin-left: 83px;
+}
+
+label .god {
+    margin-left: 60px;
+}
+
+input:hover {
+    background-color: rgb(185, 185, 179);
+}
+
+
+span {
+    font-size: 18px;
+    font-family:Roboto;
+}
+
+.submit, .sub_right {
+    background-color: rgb(212, 206, 210);
+    margin-top: 10px;
+    margin: 10px 45px;
+    width: 200px;
+    font-family:Roboto;
+ 
+}
+.knopka_rig {
+    margin-left: 250px;
+    margin-top: -45px;
+}
+.submit:active {
+    
+    background-color: rgb(138, 137, 207);
+}
+
+.sub_right:active {
+   
+    background-color: rgb(138, 137, 207);
+}
+a { 
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    margin-left: 20%; 
+}
+a:hover {
+    text-decoration: underline;
+}
+
+h4 {
+    font-size: 40px;
+    font-family:Roboto;
+  
+}

@@ -1,0 +1,26 @@
+<head>
+    <link rel="stylesheet" href="../../reset.css">
+    <link rel="stylesheet" href="../../main.css">
+
+</head>
+<span class="d-flex justify-content-center m-3"> Данные о поставщике: </span>
+<table class="table table-bordered table-center mr-auto ml-auto">
+    <tr class="bg-secondary">
+        <th>ФИО водителя</th>
+        <th>Модель автомобиля</th>
+        <th>Шасси</th>
+        <th>Год автомобиля</th>
+        <th>Направление перевозки</th>
+        <th><button type="button" class="btn btn-primary" onClick='location.href="/add_cars"'>Добавить</button>
+ </th>
+    </tr>
+    {{#each car}}
+        <tr class='bg-info'>
+            <td align="center">{{FIO}}</td>
+            <td>{{Model}}</td>
+            <td>{{Chassis}}</td>
+            <td>{{{Year}}}</td>
+            <td>{{{Direction_transportation}}}</td>
+        </tr>
+    {{/each}}
+</table>

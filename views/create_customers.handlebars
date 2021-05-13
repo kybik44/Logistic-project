@@ -1,0 +1,48 @@
+
+        <div class="box_left">
+            <h4> {{Name_form}}</h4>
+            <form method="POST" action="/save_customers">
+            
+             <label class="form-field">
+                    <input class="id" type="hidden" name = "ID" value="{{Id}}"  >
+                </label>
+
+                <label class="form-field">
+                    <span>Наименование огранизации:</span>
+                    <input class="fio" type="text" placeholder="ООО Интертрансавто" name = "Name" value="{{Name}}">
+                </label>
+                <label class="form-field">
+                    <span>Тип услуг:</span>
+                    <input class="marka" type="text" placeholder="Прямые продажи" name ="Type" value="{{Type}}">
+                </label>
+                <label class="form-field">
+                    <span>УНП:</span>
+                    <input class="shasi" type="text" placeholder="190080211" name = "UNP" value="{{UNP}}">
+                </label>
+                
+                <label class="form-field">
+                    <span>Юридический адрес:</span>
+                    <input class="god" type="text" placeholder="222720, Минская,  г.Дзержинск,  ул.Фоминых, д. 5, к.1" name="Legal_address" value="{{Legal_address}}">
+                </label>
+                <label class="form-field">
+                    <span>Фактический адрес:</span>
+                    <input type="text" placeholder="222720, Минская,  г.Дзержинск,  ул.Фоминых, д. 5, к.1" name="Actual_address" value="{{Actual_address}}">
+                </label>
+                
+                <label class="form-field">
+                    <span>Тел./факс:</span>
+                    <input type="text" placeholder="171657077 " name="Tel" value="{{Tel}}">
+                </label>
+                <label class="form-field">
+                    <span>Контактное лицо:</span>
+                    <input type="text" placeholder="Иванов И.В. " name="Person" value="{{Person}}">
+                </label>
+                <label class="knopka">
+                {{!-- <input class="submit" type="submit" value="Добавить"> --}}
+                 <input class="submit" type="submit" value={{button_name}}>
+                {{!-- <input class="submit" type="submit" value="Отмена"> --}}
+                </label>
+               
+            
+            </form>
+        </div>

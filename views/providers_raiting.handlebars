@@ -1,0 +1,31 @@
+<script>
+  class Plot {
+    constructor(color,width,height) {
+      this.color = color
+      this.width = width
+      this.height = height
+    }
+    async _draw() { // protected метод
+      let providers = await axios.get('/get_provider_ratings').then(res => res.data);
+        // получаем всех провайдеров
+      let chartData = [];
+        for(let provider in providers) {
+            chartData.push([providers[provider].Name,providers[provider].Rating]);
+          }
+        var chart = anychart.pie();
+        chart.data(chartData);
+        chart.title("Топ рейтинга заказчиков");
+        chart.fill(this.color);
+        chart.container("chart");
+        chart.height(this.height)
+        chart.width(this.width)
+        chart.draw();
+        }
+      }  
+      anychart.onDocumentLoad(async function () {
+      let plot = new Plot('blue',500,500);
+      plot._draw();
+      });
+</script>
+
+<div id="chart" style="height:95vh;position:absolute;left:35%;top:5%;"></div>

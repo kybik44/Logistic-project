@@ -1,0 +1,33 @@
+<head>
+    <link rel="stylesheet" href="../../reset.css">
+    <link rel="stylesheet" href="../../main.css">
+
+</head>
+<span class="d-flex justify-content-center m-3"> Данные о поставщике: </span>
+<table class="table table-bordered table-center mr-auto ml-auto">
+    <tr class="bg-secondary">
+        <th>Название услуги</th>
+        <th>Код</th>
+        <th>Ед.измерения</th>
+        <th>Артикул</th>
+        <th>Вес</th>
+        <th>Является услугой</th>
+        <th><button type="button" class="btn btn-primary" onClick='location.href="/add_providers"'>Добавить</button>
+ </th>
+    </tr>
+    {{#each service}}
+        <tr class='bg-info'>
+            <td align="center">{{Name}}</td>
+            <td>{{Code}}</td>
+            <td>{{Unit}}</td>
+            <td>{{{VendorCode}}}</td>
+            <td>{{{Country_of_origin}}}</td>
+            <td>{{{Weight}}}</td>
+            {{#if Service}}
+            <td>Да</td>
+            {{else}}
+            <td>Нет</td> 
+            {{/if}}
+        </tr>
+    {{/each}}
+</table>

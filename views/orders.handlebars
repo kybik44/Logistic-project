@@ -1,0 +1,61 @@
+
+<style>
+    .confirm_order_button {
+        cursor: pointer;
+    }
+</style>
+<script>
+    function downloadFile(text) {
+        console.log(text)
+    }
+</script>
+{{#if customer}}
+<table class="table ml-auto mr-auto w-75 text-center table-primary">
+<thead>
+    <tr>
+      <th scope="col">Услуга</th>
+      <th scope="col">Исполнитель</th>
+      <th scope="col">Срок выполнения</th>
+      <th scope="col"> Статус выполнения </th>  
+    </tr>
+  </thead>
+  <tbody>
+    {{#each orders}}
+    <tr>
+        <th>{{customer}}</th>
+        <td>{{provider}}
+        <td>{{execution_period}}</td>
+        <td>
+            {{#if status}}
+                Завершен
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                    <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
+                </svg>
+            {{else}}
+            <form class='confirm_order_button' method="POST" action="/order_setdone">
+                <input type="hidden" name="customer" value="{{customer}}">
+                <input type="hidden" name="provider" value="{{provider}}">
+                <input type="hidden" name="execution_period" value="{{execution_period}}">
+                <button type='submit'> Не выполнено </button>
+            </form>
+            {{/if}}
+
+        </td>
+    </tr>
+{{/each}}
+  </tbody>
+</table>
+{{/if}}
+{{#if executor}}
+    <div class="w-50 ml-auto mr-auto text-center text-white bg-info">
+        Ваши заказы :
+        {{{text}}}
+        <div class="m-5 p-2">
+            Вы можете скачать текстовый вариант списка заказов :
+            <form method="get" action='/orders_download'>
+                <input type="submit" value="Скачать файл">
+                <input type="hidden" name="text" value='{{{text}}}'>
+            </form>
+        </div>
+    </div>
+{{/if}}

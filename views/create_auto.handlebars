@@ -1,0 +1,38 @@
+
+
+        <div class="box_left">
+            <h4> {{Name_form}} </h4>
+            <form method="POST" action="/save_car">
+                <label class="form-field">
+                    <input class="id" type="hidden" name = "ID" value="{{Id}}"  >
+                </label>
+                <label class="form-field">
+                    <span>Ф.И.О. водителя:</span>
+                    <input class="fio" type="text" placeholder="Петро Игорь Викторович" name = "FIO" value="{{fio_c}}" >
+                </label>
+                <label class="form-field">
+                    <span>Марка автомобиля:</span>
+                    <input class="marka" type="text" placeholder="MAN 2120" name ="Model" value="{{mdl}}"> 
+                </label>
+                <label class="form-field">
+                    <span>Номер шасси:</span>
+                    <input class="shasi" type="text" placeholder="MAA 291293" name = "Chassis" value="{{Chassi}}">
+                </label>
+                
+                <label class="form-field">
+                    <span>Год автомобиля:</span>
+                    <input class="god" type="text" placeholder="2019" name="Year" value="{{year}}">
+                </label>
+                <label class="form-field">
+                    <span>Направления превозок:</span>
+                    <input type="text" placeholder="Грузия" name="Direction_transportation" value="{{Dir_tra}}">
+                </label>
+                
+                <label class="knopka">
+               <input class="submit" type="submit" value={{button_name}}> 
+                {{!-- <input class="submit" type="submit" value="Отмена"> --}}
+                </label>
+               
+            
+            </form>
+        </div>

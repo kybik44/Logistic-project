@@ -1,0 +1,63 @@
+<style>
+.table {
+   margin: auto;
+   width: 50% !important;
+   background-color: aliceblue;
+ }
+
+.dates {
+   width: 50%; 
+
+}
+ input[type="submit"] {
+        width: 30px;
+        height: 30px;
+        border: none;
+        background: url(./img/delete.png) no-repeat 50% 50%;
+        img {
+            line-height: 1px;
+        }
+</style>
+
+<script>
+    function my_confirm(form) {
+        return confirm('Удалить клиента?');
+    }
+</script>
+
+
+<table class="table table-striped table-bordered w-50 table-center">
+    <tr>
+        <th>Название организации</th>
+        <th>Тип услуг</th>
+        <th>УНП</th>
+        <th>Юридический адрес</th>
+        <th>Фактический адрес</th>
+        <th>Тел./факс</th>
+        <th>Контактное лицо</th>
+        {{#if admin}}
+        <th><button type="button" class="btn btn-primary" onClick='location.href="/add_customers"'>Добавить</button>
+        {{/if}}
+ </th>
+    </tr>
+    {{#each ddd}}
+        <tr>
+            <td align="center">{{Name}}</td>
+            <td>{{{Type}}}</td>
+            <td>{{UNP}}</td>
+            <td>{{{Legal_address}}}</td>
+            <td>{{{Actual_address}}}</td>
+            <td>{{{Tel}}}</td>
+            <td>{{{Person}}}</td>
+            {{#if ../admin}}
+            <td>
+            <a href="/add_customers?id={{_id}}"> <img class="edit-img" src="./img/edit.png" ></a>
+            <form method="POST" action="/delete_customer" onsubmit="return my_confirm()">
+                <input class="submit" type="submit" value="">
+                <input type="hidden" name="id" value={{_id}}>
+            </form>
+            </td>
+            {{/if}}
+        </tr>
+    {{/each}}
+</table>

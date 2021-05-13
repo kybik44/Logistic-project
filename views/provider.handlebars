@@ -1,0 +1,34 @@
+<head>
+    <link rel="stylesheet" href="../../reset.css">
+    <link rel="stylesheet" href="../../main.css">
+
+</head>
+<span class="d-flex justify-content-center m-3"> Данные о поставщике: </span>
+<table class="table table-bordered table-center mr-auto ml-auto">
+    <tr class="bg-secondary">
+        <th>Название организации</th>
+        <th>Тип услуг</th>
+        <th>УНП</th>
+        <th>Юридический адрес</th>
+        <th>Фактический адрес</th>
+        <th>Тел./факс</th>
+        <th>Контактное лицо</th>
+        <th>Банковский счет</th>
+        <th>Рейтинг</th>
+        <th><button type="button" class="btn btn-primary" onClick='location.href="/add_providers"'>Добавить</button>
+ </th>
+    </tr>
+    {{#each provider}}
+        <tr class='bg-info'>
+            <td align="center">{{Name}}</td>
+            <td>{{{Type}}}</td>
+            <td>{{UNP}}</td>
+            <td>{{{Legal_address}}}</td>
+            <td>{{{Actual_address}}}</td>
+            <td>{{{Tel}}}</td>
+            <td>{{{Person}}}</td> 
+            <td>{{{Payment}}}</td> 
+            <td>{{{Rating}}}</td>
+        </tr>
+    {{/each}}
+</table>
